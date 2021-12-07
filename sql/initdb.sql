@@ -19,7 +19,7 @@ CREATE TABLE `project_info` (
     `project_description` varchar(200) COMMENT '项目描述',
     `project_owner` varchar(16) NOT NULL COMMENT '项目负责人姓名',
     `project_owner_phone` varchar(16) NOT NULL COMMENT '项目负责人电话',
-    `project_state` bigint(8) NOT NULL COMMENT '项目状态',
+    `project_state` bigint(2) NOT NULL COMMENT '项目状态',
     `project_risk_value` bigint(8) NOT NULL COMMENT '项目风险值',
     `project_create_time` timestamp NOT NULL COMMENT '项目创建时间',
     `check_group_id` bigint(8) NOT NULL COMMENT '检查小组id',
