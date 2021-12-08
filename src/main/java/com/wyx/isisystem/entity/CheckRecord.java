@@ -17,10 +17,14 @@ public class CheckRecord {
     private int firstId;
     // 第二级id
     private int secondId;
+    // 检查现场图片url
+    private String pictureUrl;
     // 问题描述
     private String description;
     // 检查时间
     private Timestamp checkTime;
+    // 检查记录状态，0：待审核，1：审核通过，2：审核不通过
+    private int checkState;
 
 
     public int getId() {
@@ -63,6 +67,14 @@ public class CheckRecord {
         this.secondId = secondId;
     }
 
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -77,5 +89,13 @@ public class CheckRecord {
 
     public void setCheckTime(Timestamp checkTime) {
         this.checkTime = checkTime;
+    }
+
+    public int getCheckState() {
+        return checkState;
+    }
+
+    public void setCheckState(int checkState) {
+        this.checkState = checkState;
     }
 }

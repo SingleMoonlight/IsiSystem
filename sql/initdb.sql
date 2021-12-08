@@ -32,10 +32,12 @@ CREATE TABLE `client_contract_info` (
     `contract_id` bigint(8) NOT NULL AUTO_INCREMENT COMMENT '合同id',
     `client_id` bigint(8) NOT NULL COMMENT '委托方id',
     `project_id` bigint(8) NOT NULL COMMENT '项目id',
+    `check_system_id` bigint(8) NOT NULL COMMENT '检查体系第一级id，即委托方意向',
     `contract_create_time` timestamp NOT NULL COMMENT '合同创建时间',
     PRIMARY KEY (`contract_id`),
     FOREIGN KEY (`client_id`) REFERENCES `client_info` (`client_id`),
-    FOREIGN KEY (`project_id`) REFERENCES `project_info` (`project_id`)
+    FOREIGN KEY (`project_id`) REFERENCES `project_info` (`project_id`),
+    FOREIGN KEY (`check_system_id`) REFERENCES `check_system` (`cur_node_id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_bin;
 
 # 检查记录表
@@ -45,8 +47,10 @@ CREATE TABLE `check_info` (
     `staff_id` bigint(8) NOT NULL COMMENT '检查人员id',
     `check_system_first_level` bigint(8) NOT NULL COMMENT '检查体系第一级id',
     `check_system_second_level` bigint(8) NOT NULL COMMENT '检查体系第二级id',
+    `check_picture_url` varchar(200) COMMENT '检查现场图片url',
     `check_description` varchar(200) COMMENT '问题描述',
     `check_time` timestamp NOT NULL COMMENT '检查时间',
+    `check_state` bigint(2) NOT NULL COMMENT '检查记录状态',
     PRIMARY KEY (`check_id`),
     FOREIGN KEY (`project_id`) REFERENCES `project_info` (`project_id`),
     FOREIGN KEY (`staff_id`) REFERENCES `staff_info` (`staff_id`)
@@ -54,8 +58,10 @@ CREATE TABLE `check_info` (
 
 # 检查体系表
 CREATE TABLE `check_system` (
-    `cur_node_id` bigint(8) NOT NULL COMMENT '当前结点id',
-    `per_node_id` bigint(8) NOT NULL COMMENT '前置结点id'
+    `cur_node_id` bigint(8) NOT NULL AUTO_INCREMENT COMMENT '当前结点id',
+    `per_node_id` bigint(8) NOT NULL COMMENT '前置结点id',
+    `node_description` varchar(16) NOT NULL COMMENT '当前节点描述',
+    PRIMARY KEY (`cur_node_id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_bin;
 
 # 人员信息表

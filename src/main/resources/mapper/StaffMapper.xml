@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wyx.isisystem.dao.ClientDao">
+<mapper namespace="com.wyx.isisystem.dao.StaffDao">
 
-    <select id="queryFromLogin" resultType="com.wyx.isisystem.entity.Client">
+    <select id="queryFromLogin" resultType="com.wyx.isisystem.entity.Staff">
         SELECT user_id AS id
         FROM login_info
         WHERE user_id = #{id} AND user_password = #{password} AND user_type = #{type}

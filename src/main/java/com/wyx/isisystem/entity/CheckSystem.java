@@ -12,6 +12,16 @@ public class CheckSystem {
     private int curCheckId;
     // 前置检查体系id
     private int preCheckId;
+    // 当前节点描述
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getCurCheckId() {
         return curCheckId;

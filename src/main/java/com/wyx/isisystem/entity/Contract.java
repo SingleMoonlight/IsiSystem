@@ -13,6 +13,8 @@ public class Contract {
     private int clientId;
     // 项目id
     private int projectId;
+    // 检查体系id，即委托方意向
+    private int checkSystemId;
     // 合同创建时间
     private Timestamp createTime;
 
@@ -38,6 +40,14 @@ public class Contract {
 
     public void setProjectId(int projectId) {
         this.projectId = projectId;
+    }
+
+    public int getCheckSystemId() {
+        return checkSystemId;
+    }
+
+    public void setCheckSystemId(int checkSystemId) {
+        this.checkSystemId = checkSystemId;
     }
 
     public Timestamp getCreateTime() {

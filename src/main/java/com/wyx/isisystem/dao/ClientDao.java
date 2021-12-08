@@ -10,6 +10,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ClientDao {
 
-    Client queryFromLogin(int id, String password);
+    Client queryFromLogin(int id, String password, int type);
 
 }

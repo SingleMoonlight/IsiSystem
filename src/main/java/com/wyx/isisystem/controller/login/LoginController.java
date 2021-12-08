@@ -27,7 +27,7 @@ public class LoginController {
         String clientId = request.getParameter("id");
         String clientPsw = request.getParameter("password");
 
-        if (loginService.login(Integer.parseInt(clientId), clientPsw) != null) {
+        if (loginService.clientLogin(Integer.parseInt(clientId), clientPsw) != null) {
             return new ContentResult(1, "Login successfully!");
         }
         return new ContentResult(-1, "Login failure!");
@@ -39,7 +39,7 @@ public class LoginController {
         String staffId = request.getParameter("id");
         String staffPsw = request.getParameter("password");
 
-        if (loginService.login(Integer.parseInt(staffId), staffPsw) != null) {
+        if (loginService.staffLogin(Integer.parseInt(staffId), staffPsw) != null) {
             return new ContentResult(1, "Login successfully!");
         }
         return new ContentResult(-1, "Login failure!");
