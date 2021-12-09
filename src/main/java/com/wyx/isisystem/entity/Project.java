@@ -17,9 +17,9 @@ public class Project {
     private String owner;
     // 项目负责人电话
     private String ownerPhone;
-    // 项目状态
+    // 项目状态，0-未开始，1-进行中，2-已完成
     private int state;
-    // 项目风险值
+    // 项目风险值，按权重计算得，0-100，数值越大越危险
     private int riskValue;
     // 项目创建时间
     private Timestamp createTime;

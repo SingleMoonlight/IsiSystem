@@ -2,11 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wyx.isisystem.dao.ClientDao">
 
-    <select id="queryFromLogin" resultType="com.wyx.isisystem.entity.Client">
-        SELECT user_id AS id
-        FROM login_info
-        WHERE user_id = #{id} AND user_password = #{password} AND user_type = #{type}
+    <select id="queryAllClient" resultType="com.wyx.isisystem.entity.Client">
+        SELECT client_id AS id, client_name AS name
+        FROM client_info
     </select>
+
+    <insert id="insertClient" parameterType="com.wyx.isisystem.entity.Client">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO client_info(client_id, client_name, client_description)
+        VALUE (#{id}, #{name}, #{description})
+    </insert>
 
 
 

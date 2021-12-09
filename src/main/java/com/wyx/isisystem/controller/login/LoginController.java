@@ -22,12 +22,12 @@ public class LoginController {
     private LoginService loginService;
 
     @ResponseBody
-    @RequestMapping(value = "/client", method = RequestMethod.POST)
-    private ContentResult clientLogin(HttpServletRequest request) {
-        String clientId = request.getParameter("id");
-        String clientPsw = request.getParameter("password");
+    @RequestMapping(value = "/tenant", method = RequestMethod.POST)
+    private ContentResult tenantLogin(HttpServletRequest request) {
+        String tenantId = request.getParameter("id");
+        String tenantPsw = request.getParameter("password");
 
-        if (loginService.clientLogin(Integer.parseInt(clientId), clientPsw) != null) {
+        if (loginService.tenantLogin(Integer.parseInt(tenantId), tenantPsw) != null) {
             return new ContentResult(1, "Login successfully!");
         }
         return new ContentResult(-1, "Login failure!");

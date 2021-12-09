@@ -64,7 +64,7 @@ CREATE TABLE `check_system` (
     PRIMARY KEY (`cur_node_id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_bin;
 
-# 人员信息表
+# 检查员工信息表
 CREATE TABLE `staff_info` (
     `staff_id` bigint(8) NOT NULL AUTO_INCREMENT COMMENT '员工id',
     `staff_name` varchar(8) NOT NULL COMMENT '员工姓名',
@@ -80,6 +80,13 @@ CREATE TABLE `group_info` (
     `group_leader_id` bigint(8) NOT NULL COMMENT '组长id',
     PRIMARY KEY (`group_id`),
     FOREIGN KEY (group_leader_id) REFERENCES `staff_info` (`staff_id`)
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_bin;
+
+# 租户表
+CREATE TABLE `tenant_info` (
+    `tenant_id` bigint(8) NOT NULL AUTO_INCREMENT COMMENT '租户id',
+    `tenant_name` varchar(16) NOT NULL COMMENT '租户名称',
+    PRIMARY KEY (`tenant_id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_bin;
 
 # 登录表

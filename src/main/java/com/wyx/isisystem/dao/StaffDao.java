@@ -9,5 +9,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface StaffDao {
+    // 从登陆表查询员工
     Staff queryFromLogin(int id, String password, int type);
 }

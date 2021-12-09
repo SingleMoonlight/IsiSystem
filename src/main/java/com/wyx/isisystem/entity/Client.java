@@ -16,23 +16,23 @@ public class Client {
         return id;
     }
 
-    public void setClientId(int clientId) {
-        this.id = clientId;
+    public void setClientId(int id) {
+        this.id = id;
     }
 
     public String getClientName() {
         return name;
     }
 
-    public void setClientName(String clientName) {
-        this.name = clientName;
+    public void setClientName(String name) {
+        this.name = name;
     }
 
     public String getClientDescription() {
         return description;
     }
 
-    public void setClientDescription(String clientDescription) {
-        this.description = clientDescription;
+    public void setClientDescription(String description) {
+        this.description = description;
     }
 }
