@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,9 +35,7 @@ public class ClientController {
 
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ContentResult createClient(HttpServletRequest request) {
-        String clientName = request.getParameter("name");
-        String clientDescription = request.getParameter("description");
+    public ContentResult createClient(@RequestParam("name") String clientName, @RequestParam("description") String clientDescription) {
         int clientId = clientService.createClient(clientName, clientDescription);
         if (clientId > 0) {
             return new ContentResult(1, "Client add successfully!");
