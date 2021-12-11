@@ -24,7 +24,7 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping(value = "/tenant", method = RequestMethod.POST)
-    private ContentResult tenantLogin(@RequestParam("id") String tenantId, @RequestParam("password")String tenantPsw) {
+    public ContentResult tenantLogin(@RequestParam("id") String tenantId, @RequestParam("password")String tenantPsw) {
         if (loginService.tenantLogin(Integer.parseInt(tenantId), tenantPsw) != null) {
             return new ContentResult(1, "Login successfully!");
         }
@@ -33,7 +33,7 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping(value = "/staff", method = RequestMethod.POST)
-    private ContentResult staffLogin(@RequestParam("id") String staffId, @RequestParam("password") String staffPsw) {
+    public ContentResult staffLogin(@RequestParam("id") String staffId, @RequestParam("password") String staffPsw) {
         if (loginService.staffLogin(Integer.parseInt(staffId), staffPsw) != null) {
             return new ContentResult(1, "Login successfully!");
         }

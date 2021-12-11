@@ -24,13 +24,13 @@ public class ClientController {
     private ClientService clientService;
 
     @ResponseBody
-    @RequestMapping(value = "/find", method = RequestMethod.GET)
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public ContentResult findAllClient() {
         List<Client> list = clientService.findAllClient();
         if (list.size() != 0) {
-            return new ContentResult(1, "Query successfully!", list);
+            return new ContentResult(1, "Find clients successfully!", list);
         }
-        return new ContentResult(-1, "Query failure!");
+        return new ContentResult(-1, "Find clients failure!");
     }
 
     @ResponseBody
@@ -38,8 +38,8 @@ public class ClientController {
     public ContentResult createClient(@RequestParam("name") String clientName, @RequestParam("description") String clientDescription) {
         int clientId = clientService.createClient(clientName, clientDescription);
         if (clientId > 0) {
-            return new ContentResult(1, "Client add successfully!");
+            return new ContentResult(1, "Client create successfully!");
         }
-        return new ContentResult(-1, "Client add failure!");
+        return new ContentResult(-1, "Client create failure!");
     }
 }
