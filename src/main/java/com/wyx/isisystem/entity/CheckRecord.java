@@ -17,6 +17,8 @@ public class CheckRecord {
     private int firstId;
     // 第二级id
     private int secondId;
+    // 风险等级，0-无风险，1-轻度风险，2-一般风险，3-高危风险
+    private int riskLevel;
     // 检查现场图片url
     private String pictureUrl;
     // 问题描述
@@ -65,6 +67,14 @@ public class CheckRecord {
 
     public void setSecondId(int secondId) {
         this.secondId = secondId;
+    }
+
+    public int getRiskLevel() {
+        return riskLevel;
+    }
+
+    public void setRiskLevel(int riskLevel) {
+        this.riskLevel = riskLevel;
     }
 
     public String getPictureUrl() {

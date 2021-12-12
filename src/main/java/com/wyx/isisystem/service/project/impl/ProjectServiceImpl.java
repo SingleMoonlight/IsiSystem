@@ -6,6 +6,8 @@ import com.wyx.isisystem.service.project.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author Wuyuxiang
  * @create 2021-12-08-13:59
@@ -29,7 +31,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project findProjectById(int id) {
+    public Project getProjectById(int id) {
         Project project = projectDao.queryProject(id);
         return project;
     }
@@ -63,5 +65,14 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDao.updateProjectState(id, state);
     }
 
+    @Override
+    public int getStateProjectCount(int state) {
+        return projectDao.queryStateProjectCount(state);
+    }
+
+    @Override
+    public List<Project> getAllProject() {
+        return projectDao.queryAllProject();
+    }
 
 }

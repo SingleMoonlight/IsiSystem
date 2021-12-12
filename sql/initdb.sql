@@ -32,12 +32,11 @@ CREATE TABLE `client_contract_info` (
     `contract_id` bigint(8) NOT NULL AUTO_INCREMENT COMMENT '合同id',
     `client_id` bigint(8) NOT NULL COMMENT '委托方id',
     `project_id` bigint(8) NOT NULL COMMENT '项目id',
-    `check_system_id` bigint(8) NOT NULL COMMENT '检查体系第一级id，即委托方意向',
+    `check_system_id` varchar(16) NOT NULL COMMENT '检查体系第一级id，即委托方意向',
     `contract_create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '合同创建时间',
     PRIMARY KEY (`contract_id`),
     FOREIGN KEY (`client_id`) REFERENCES `client_info` (`client_id`),
-    FOREIGN KEY (`project_id`) REFERENCES `project_info` (`project_id`),
-    FOREIGN KEY (`check_system_id`) REFERENCES `check_system` (`cur_node_id`)
+    FOREIGN KEY (`project_id`) REFERENCES `project_info` (`project_id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_bin;
 
 # 检查记录表
@@ -47,6 +46,7 @@ CREATE TABLE `check_info` (
     `staff_id` bigint(8) NOT NULL COMMENT '检查人员id',
     `check_system_first_level` bigint(8) NOT NULL COMMENT '检查体系第一级id',
     `check_system_second_level` bigint(8) NOT NULL COMMENT '检查体系第二级id',
+    `check_risk_level` bigint(2) NOT NULL COMMENT '风险等级',
     `check_picture_url` varchar(200) COMMENT '检查现场图片url',
     `check_description` varchar(200) COMMENT '问题描述',
     `check_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '检查时间',
@@ -70,6 +70,7 @@ CREATE TABLE `staff_info` (
     `staff_name` varchar(8) NOT NULL COMMENT '员工姓名',
     `staff_gender` varchar(2) NOT NULL COMMENT '员工性别',
     `staff_phone` varchar(16) NOT NULL COMMENT '员工电话',
+    `staff_group_id` bigint(8) NOT NULL COMMENT '员工小组id',
     PRIMARY KEY (`staff_id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_bin;
 

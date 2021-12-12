@@ -13,6 +13,8 @@ public class Staff {
     private String gender;
     // 员工电话
     private String phone;
+    // 员工所属小组id
+    private int groupId;
 
     public int getId() {
         return id;
@@ -44,5 +46,13 @@ public class Staff {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
 }

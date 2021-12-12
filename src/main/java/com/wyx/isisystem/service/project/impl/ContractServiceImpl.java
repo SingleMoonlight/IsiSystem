@@ -21,7 +21,7 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     @Transactional
-    public int createContract(int clientId, int projectId, int checkSystemId) {
+    public int createContract(int clientId, int projectId, String checkSystemId) {
         Contract contract = new Contract();
         contract.setClientId(clientId);
         contract.setProjectId(projectId);

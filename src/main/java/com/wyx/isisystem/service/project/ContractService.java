@@ -6,6 +6,6 @@ package com.wyx.isisystem.service.project;
  */
 public interface ContractService {
     // 创建合同
-    int createContract(int clientId, int projectId, int checkSystemId);
+    int createContract(int clientId, int projectId, String checkSystemId);
 
 }

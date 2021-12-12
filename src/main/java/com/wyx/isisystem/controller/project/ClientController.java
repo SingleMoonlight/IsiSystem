@@ -24,13 +24,13 @@ public class ClientController {
     private ClientService clientService;
 
     @ResponseBody
-    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public ContentResult findAllClient() {
-        List<Client> list = clientService.findAllClient();
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public ContentResult getAllClient() {
+        List<Client> list = clientService.getAllClient();
         if (list.size() != 0) {
-            return new ContentResult(1, "Find clients successfully!", list);
+            return new ContentResult(1, "Get clients successfully!", list);
         }
-        return new ContentResult(-1, "Find clients failure!");
+        return new ContentResult(-1, "Get clients failure!");
     }
 
     @ResponseBody

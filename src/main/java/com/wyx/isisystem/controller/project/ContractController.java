@@ -23,7 +23,7 @@ public class ContractController {
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ContentResult createContract(@RequestParam("clientId") String clientId, @RequestParam("projectId") String projectId, @RequestParam("checkSystemId") String checkSystemId) {
-        int contractId = contractService.createContract(Integer.parseInt(clientId), Integer.parseInt(projectId), Integer.parseInt(checkSystemId));
+        int contractId = contractService.createContract(Integer.parseInt(clientId), Integer.parseInt(projectId), checkSystemId);
 
         if (contractId > 0) {
             return new ContentResult(1, "Contract create successfully!");

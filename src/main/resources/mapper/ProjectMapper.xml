@@ -40,4 +40,16 @@
         WHERE project_id = #{id}
     </select>
 
+    <select id="queryStateProjectCount" resultType="java.lang.Integer">
+        SELECT COUNT(project_state)
+        FROM project_info
+        WHERE project_state = #{state}
+    </select>
+
+    <select id="queryAllProject" resultType="com.wyx.isisystem.entity.Project">
+        SELECT project_name AS name, project_description AS description, project_owner AS owner, project_owner_phone AS ownerPhone,
+               project_state AS state, project_risk_value AS riskValue, project_create_time AS createTime, check_group_id AS groupId
+        FROM project_info
+    </select>
+
 </mapper>

@@ -4,7 +4,7 @@ package com.wyx.isisystem.entity;
  * @author Wuyuxiang
  * @create 2021-12-08-21:53
  *
- * 租户即系统的使用者，受委托方委托派检查人员检查
+ * 租户即系统的使用者，受委托方委托派检查人员检查，简单来说就是乙方
  */
 public class Tenant {
     // 租户id

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wyx.isisystem.dao.CheckSystemDao">
+
+    <select id="querySubNodes" resultType="com.wyx.isisystem.entity.CheckSystem">
+        SELECT cur_node_id AS curCheckId, per_node_id AS preCheckId, node_description AS description
+        FROM check_system
+        WHERE per_node_id = #{curNodeId}
+    </select>
+
+</mapper>

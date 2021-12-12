@@ -18,7 +18,7 @@ public class ClientServiceImpl implements ClientService {
     private ClientDao clientDao;
 
     @Override
-    public List<Client> findAllClient() {
+    public List<Client> getAllClient() {
         return clientDao.queryAllClient();
     }
 

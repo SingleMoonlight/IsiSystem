@@ -1,5 +1,6 @@
 package com.wyx.isisystem.controller.project;
 
+import com.wyx.isisystem.entity.Client;
 import com.wyx.isisystem.entity.ContentResult;
 import com.wyx.isisystem.entity.Project;
 import com.wyx.isisystem.service.project.ProjectService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @author Wuyuxiang
@@ -33,17 +35,17 @@ public class ProjectController {
 
         int projectId = projectService.createProject(projectName, projectDescription, projectOwner, projectOwnerPhone, Integer.parseInt(projectCheckGroupId));
         if (projectId > 0) {
-            return new ContentResult(1, "Project create successfully!");
+            return new ContentResult(1, "Project create successfully!", projectId);
         }
         return new ContentResult(-1, "Project create failure!");
     }
 
 
     @ResponseBody
-    @RequestMapping(value = "/findById", method = RequestMethod.GET)
-    public ContentResult findProjectById(@RequestParam("id") String projectId) {
+    @RequestMapping(value = "/getById", method = RequestMethod.GET)
+    public ContentResult getProjectById(@RequestParam("id") String projectId) {
         Project project = new Project();
-        project = projectService.findProjectById(Integer.parseInt(projectId));
+        project = projectService.getProjectById(Integer.parseInt(projectId));
 
         if (project != null) {
             return new ContentResult(1, "Find project successfully!", project);
@@ -92,6 +94,16 @@ public class ProjectController {
         }
 
         return new ContentResult(-1, "Project remove failure!");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public ContentResult getAllProject() {
+        List<Project> list = projectService.getAllProject();
+        if (list.size() != 0) {
+            return new ContentResult(1, "Get projects successfully!", list);
+        }
+        return new ContentResult(-1, "Get projects failure!");
     }
 
 }

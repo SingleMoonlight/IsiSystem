@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 /**
  * @author Wuyuxiang
  * @create 2021-12-07-21:15
+ *
+ * 项目创建时处于未开始状态，此时对项目的变动（删除，编辑）都是可以的
+ * 如果项目已经正在进行或者完成，即合同已经签订，是不允许修改的
  */
 public class Project {
     // 项目id

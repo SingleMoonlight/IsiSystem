@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface ClientService {
     // 查询所有委托方
-    List<Client> findAllClient();
+    List<Client> getAllClient();
     // 录入新的委托方
     int createClient(String name, String description);
 }

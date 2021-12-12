@@ -3,6 +3,8 @@ package com.wyx.isisystem.dao;
 import com.wyx.isisystem.entity.Project;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @author Wuyuxiang
  * @create 2021-12-08-16:34
@@ -21,5 +23,9 @@ public interface ProjectDao {
     int updateProjectState(int id, int state);
     // 查询项目状态
     int queryProjectState(int id);
+    // 查询指定状态下的项目数量
+    int queryStateProjectCount(int state);
+    // 查询所有项目
+    List<Project> queryAllProject();
 
 }
