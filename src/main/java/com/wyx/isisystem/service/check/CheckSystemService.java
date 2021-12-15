@@ -18,6 +18,6 @@ public interface CheckSystemService {
     // 删除指定的检查体系节点
     int removeCheckSystem(int id);
     // 修改检查体系节点
-
+    int editCheckSystemId(int id, String description);
 
 }

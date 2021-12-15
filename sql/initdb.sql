@@ -37,6 +37,8 @@ CREATE TABLE `client_contract_info` (
     PRIMARY KEY (`contract_id`),
     FOREIGN KEY (`client_id`) REFERENCES `client_info` (`client_id`),
     FOREIGN KEY (`project_id`) REFERENCES `project_info` (`project_id`)
+
+
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_bin;
 
 # 检查记录表

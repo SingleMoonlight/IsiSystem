@@ -8,4 +8,29 @@
         WHERE per_node_id = #{curNodeId}
     </select>
 
+    <select id="queryNodeInfo" resultType="com.wyx.isisystem.entity.CheckSystem">
+        SELECT cur_node_id AS curCheckId, per_node_id AS preCheckId, node_description AS description
+        FROM check_system
+        WHERE cur_node_id = #{nodeId}
+    </select>
+
+    <insert id="insertNode" parameterType="com.wyx.isisystem.entity.CheckSystem">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="curCheckId">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO check_system(per_node_id, node_description)
+        VALUE (#{preCheckId}, #{description})
+    </insert>
+
+    <delete id="deleteNode">
+        DELETE FROM check_system
+        WHERE cur_node_id = #{nodeId}
+    </delete>
+
+    <update id="updateNodeInfo">
+        UPDATE check_system
+        SET node_description = #{description}
+        WHERE cur_node_id = #{nodeId}
+    </update>
+
 </mapper>

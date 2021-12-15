@@ -13,5 +13,13 @@ import java.util.List;
 public interface CheckSystemDao {
     // 查询指定结点的后继检查体系节点
     List<CheckSystem> querySubNodes(int curNodeId);
+    // 查询节点信息
+    CheckSystem queryNodeInfo(int nodeId);
+    // 新增检查体系节点
+    int insertNode(CheckSystem checkSystem);
+    // 删除体系节点
+    int deleteNode(int nodeId);
+    // 修改检查体系节点信息
+    int updateNodeInfo(int nodeId, String description);
 
 }

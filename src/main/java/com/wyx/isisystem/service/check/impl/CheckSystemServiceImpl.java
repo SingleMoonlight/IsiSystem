@@ -25,17 +25,26 @@ public class CheckSystemServiceImpl implements CheckSystemService {
 
     @Override
     public CheckSystem getCheckSystemNodeInfo(int id) {
-        return null;
+        return checkSystemDao.queryNodeInfo(id);
     }
 
     @Override
     public int createCheckSystemNode(int preNodeId, String description) {
-        return 0;
+        CheckSystem checkSystem = new CheckSystem();
+        checkSystem.setPreCheckId(preNodeId);
+        checkSystem.setDescription(description);
+
+        return checkSystemDao.insertNode(checkSystem);
     }
 
     @Override
     public int removeCheckSystem(int id) {
-        return 0;
+        return checkSystemDao.deleteNode(id);
+    }
+
+    @Override
+    public int editCheckSystemId(int id, String description) {
+        return checkSystemDao.updateNodeInfo(id, description);
     }
 
 
