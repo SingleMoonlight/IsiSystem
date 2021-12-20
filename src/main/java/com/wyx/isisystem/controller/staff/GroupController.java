@@ -44,5 +44,35 @@ public class GroupController {
         return new ContentResult(-1, "Get all groups failure!", list);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/editName", method = RequestMethod.POST)
+    public ContentResult editGroupName(@RequestParam("id") String groupId, @RequestParam("name") String groupName) {
+        int editResult = groupService.editGroupName(Integer.parseInt(groupId), groupName);
+        if (editResult > 0) {
+            return new ContentResult(1, "Edit group name successfully!");
+        }
+        return new ContentResult(-1, "Edit group name failure!");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/editGroupLeader", method = RequestMethod.POST)
+    public ContentResult editGroupLeader(@RequestParam("id") String id, @RequestParam("leaderId") String leaderId) {
+        int editResult = groupService.editGroupLeader(Integer.parseInt(id), Integer.parseInt(leaderId));
+        if (editResult > 0) {
+            return new ContentResult(1, "Edit group leader successfully!");
+        }
+        return new ContentResult(-1, "Edit group leader failure!");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/remove", method = RequestMethod.POST)
+    public ContentResult removeGroup(@RequestParam("id") String groupId) {
+        int removeResult = groupService.removeGroup(Integer.parseInt(groupId));
+        if (removeResult > 0) {
+            return new ContentResult(1, "Remove group successfully!");
+        }
+        return new ContentResult(-1, "Remove group failure!");
+    }
+
 
 }

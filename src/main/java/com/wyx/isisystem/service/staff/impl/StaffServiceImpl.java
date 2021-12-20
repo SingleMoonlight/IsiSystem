@@ -125,4 +125,9 @@ public class StaffServiceImpl implements StaffService {
         return staffDao.updateStaffGroup(staffId, groupId);
     }
 
+    @Override
+    public int changeStaffLeaderFlag(int id, int flag) {
+        return staffDao.updateStaffLeaderFlag(id, flag);
+    }
+
 }

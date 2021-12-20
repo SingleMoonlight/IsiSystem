@@ -30,5 +30,7 @@ public interface StaffService {
     List<Staff> getAllStaff();
     // 修改员工所属小组
     int changeStaffGroup(int staffId, int groupId);
+    // 设置员工组长标志
+    int changeStaffLeaderFlag(int id, int flag);
 
 }

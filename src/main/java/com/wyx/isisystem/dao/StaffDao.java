@@ -38,5 +38,6 @@ public interface StaffDao {
     List<Staff> queryAllStaff();
     // 修改员工所在小组
     int updateStaffGroup(int staffId, int groupId);
-
+    // 修改员工组长标志
+    int updateStaffLeaderFlag(int id, int flag);
 }

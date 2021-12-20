@@ -14,7 +14,9 @@ public interface GroupDao {
     // 新增小组
     int insertGroup(Group group);
     // 修改小组
-    int updateGroup(int id);
+    int updateGroupName(int id, String name);
+    // 修改小组组长
+    int updateGroupLeader(int id, int leaderId);
     // 删除小组
     int deleteGroup(int id);
     // 查询所有小组

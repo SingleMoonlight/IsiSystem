@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wyx.isisystem.dao.GroupDao">
+
+    <insert id="insertGroup" parameterType="com.wyx.isisystem.entity.Group" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO group_info(group_id, group_name, group_leader_id)
+        VALUE (#{id}, #{name}, #{leaderId})
+    </insert>
+
+    <update id="updateGroupName">
+        UPDATE group_info
+        SET group_name = #{name}
+        WHERE group_id = #{id}
+    </update>
+
+    <update id="updateGroupLeader">
+        UPDATE group_info
+        SET group_leader_id = #{leaderId}
+        WHERE group_id = #{id}
+    </update>
+
+    <delete id="deleteGroup">
+        DELETE FROM group_info
+        WHERE group_id = #{id}
+    </delete>
+
+    <select id="queryAllGroup" parameterType="com.wyx.isisystem.entity.Group">
+        SELECT group_id AS id, group_name AS name, group_leader_id AS leaderId
+        FROM group_info
+    </select>
+
+    <select id="queryGroup" parameterType="com.wyx.isisystem.entity.Group">
+        SELECT group_name AS name, group_leader_id AS leaderId
+        FROM group_info
+        WHERE group_id = #{id}
+    </select>
+
+</mapper>
