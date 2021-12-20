@@ -48,10 +48,10 @@ public class ProjectController {
         project = projectService.getProjectById(Integer.parseInt(projectId));
 
         if (project != null) {
-            return new ContentResult(1, "Find project successfully!", project);
+            return new ContentResult(1, "Get project successfully!", project);
         }
 
-        return new ContentResult(-1, "Find project failure!");
+        return new ContentResult(-1, "Get project failure!");
     }
 
     @ResponseBody

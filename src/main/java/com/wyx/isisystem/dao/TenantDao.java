@@ -11,5 +11,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface TenantDao {
     // 从登录表查询租户
     Tenant queryFromLogin(int id, String password, int type);
-
+    // 查询租户信息
+    Tenant queryTenantInfo(int id);
 }

@@ -27,7 +27,9 @@ public class ProjectServiceImpl implements ProjectService {
         project.setGroupId(checkGroupId);
         project.setState(0);
         project.setRiskValue(0);
-        return projectDao.insertProject(project);
+
+        projectDao.insertProject(project);
+        return project.getId();
     }
 
     @Override

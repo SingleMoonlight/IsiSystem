@@ -8,6 +8,11 @@
         WHERE user_id = #{id} AND user_password = #{password} AND user_type = #{type}
     </select>
 
+    <select id="queryTenantInfo" resultType="com.wyx.isisystem.entity.Tenant">
+        SELECT tenant_id AS id, tenant_name AS name
+        FROM tenant_info
+        WHERE tenant_id = #{id}
+    </select>
 
 
 </mapper>

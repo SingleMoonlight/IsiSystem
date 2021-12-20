@@ -2,10 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wyx.isisystem.dao.ProjectDao">
 
-    <insert id="insertProject" parameterType="com.wyx.isisystem.entity.Project">
-        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
-            SELECT LAST_INSERT_ID()
-        </selectKey>
+    <insert id="insertProject" parameterType="com.wyx.isisystem.entity.Project" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO project_info(project_name, project_description, project_owner, project_owner_phone, project_state, project_risk_value, check_group_id)
         VALUE (#{name}, #{description}, #{owner}, #{ownerPhone}, #{state}, #{riskValue}, #{groupId})
     </insert>

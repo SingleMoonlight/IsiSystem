@@ -27,6 +27,8 @@ public class ClientServiceImpl implements ClientService {
         Client client = new Client();
         client.setClientName(name);
         client.setClientDescription(description);
-        return clientDao.insertClient(client);
+
+        clientDao.insertClient(client);
+        return client.getClientId();
     }
 }

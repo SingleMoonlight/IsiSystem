@@ -13,8 +13,10 @@ public class Staff {
     private String gender;
     // 员工电话
     private String phone;
-    // 员工所属小组id
+    // 员工所属小组id，默认为0，未分配
     private int groupId;
+    // 组长标志，默认为0，不是组长
+    private int leaderFlag;
 
     public int getId() {
         return id;
@@ -54,5 +56,13 @@ public class Staff {
 
     public void setGroupId(int groupId) {
         this.groupId = groupId;
+    }
+
+    public int getLeaderFlag() {
+        return leaderFlag;
+    }
+
+    public void setLeaderFlag(int leaderFlag) {
+        this.leaderFlag = leaderFlag;
     }
 }

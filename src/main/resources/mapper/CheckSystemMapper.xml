@@ -14,10 +14,7 @@
         WHERE cur_node_id = #{nodeId}
     </select>
 
-    <insert id="insertNode" parameterType="com.wyx.isisystem.entity.CheckSystem">
-        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="curCheckId">
-            SELECT LAST_INSERT_ID()
-        </selectKey>
+    <insert id="insertNode" parameterType="com.wyx.isisystem.entity.CheckSystem" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO check_system(per_node_id, node_description)
         VALUE (#{preCheckId}, #{description})
     </insert>

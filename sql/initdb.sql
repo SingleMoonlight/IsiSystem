@@ -72,7 +72,8 @@ CREATE TABLE `staff_info` (
     `staff_name` varchar(8) NOT NULL COMMENT '员工姓名',
     `staff_gender` varchar(2) NOT NULL COMMENT '员工性别',
     `staff_phone` varchar(16) NOT NULL COMMENT '员工电话',
-    `staff_group_id` bigint(8) NOT NULL COMMENT '员工小组id',
+    `staff_group_id` bigint(8) NOT NULL DEFAULT 0 COMMENT '员工小组id',
+    `staff_leader_flag` bigint(2) NOT NULL DEFAULT 0 COMMENT '员工是否是组长',
     PRIMARY KEY (`staff_id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_bin;
 

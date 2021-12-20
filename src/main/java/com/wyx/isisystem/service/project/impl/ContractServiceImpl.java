@@ -28,7 +28,8 @@ public class ContractServiceImpl implements ContractService {
         contract.setCheckSystemId(checkSystemId);
 
         // 新建合同
-        int contractId = contractDao.insertContract(contract);
+        contractDao.insertContract(contract);
+        int contractId = contract.getId();
         // 更新合同对应的项目状态为正在进行
         projectService.editProjectState(projectId, 1);
 
