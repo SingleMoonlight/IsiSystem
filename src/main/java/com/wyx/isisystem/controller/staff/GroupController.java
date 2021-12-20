@@ -55,7 +55,7 @@ public class GroupController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/editGroupLeader", method = RequestMethod.POST)
+    @RequestMapping(value = "/editLeader", method = RequestMethod.POST)
     public ContentResult editGroupLeader(@RequestParam("id") String id, @RequestParam("leaderId") String leaderId) {
         int editResult = groupService.editGroupLeader(Integer.parseInt(id), Integer.parseInt(leaderId));
         if (editResult > 0) {
