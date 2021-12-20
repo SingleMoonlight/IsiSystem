@@ -15,6 +15,10 @@ public interface StaffDao {
     Staff queryFromLogin(int id, String password, int type);
     // 员工信息录入登录表
     int insertStaffToLogin(int id, String password, int type);
+    // 删除登录表员工信息
+    int deleteStaffFromLogin(int id, int type);
+    // 修改密码（登录表信息）
+    int updateStaffFromLogin(int id, String password, int type);
 
     // 查询员工信息
     Staff queryStaffInfo(int id);

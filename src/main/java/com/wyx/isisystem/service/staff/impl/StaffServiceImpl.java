@@ -83,20 +83,26 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public int editStaffInfo(int id, String name, String gender, String phone, int groupId) {
+    public int editStaffInfo(int id, String name, String gender, String phone) {
         Staff staff = new Staff();
         staff.setId(id);
         staff.setName(name);
         staff.setGender(gender);
         staff.setPhone(phone);
-        staff.setGroupId(groupId);
 
         return staffDao.updateStaffInfo(staff);
     }
 
     @Override
+    @Transactional
     public int removeStaffInfo(int id) {
+        staffDao.deleteStaffFromLogin(id, 2);
         return staffDao.deleteStaff(id);
+    }
+
+    @Override
+    public int changePassword(int id, String password) {
+        return staffDao.updateStaffFromLogin(id, password, 2);
     }
 
 

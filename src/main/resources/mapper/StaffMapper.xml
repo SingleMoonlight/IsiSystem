@@ -13,6 +13,17 @@
         VALUE (#{id}, #{password}, #{type})
     </insert>
 
+    <delete id="deleteStaffFromLogin">
+        DELETE FROM login_info
+        WHERE user_id = #{id} AND user_type = #{type}
+    </delete>
+
+    <update id="updateStaffFromLogin">
+        UPDATE login_info
+        SET user_password = #{password}
+        WHERE user_id = #{id} AND user_type = #{type}
+    </update>
+
     <select id="queryStaffInfo" resultType="com.wyx.isisystem.entity.Staff">
         SELECT staff_id AS id, staff_name AS name, staff_gender AS gender, staff_phone AS phone, staff_group_id AS groupId, staff_leader_flag AS leaderFlag
         FROM staff_info

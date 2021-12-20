@@ -53,5 +53,51 @@ public class StaffController {
         return new ContentResult(-1, "Add staffs failure!");
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/getById", method = RequestMethod.GET)
+    public ContentResult getStaffById(@RequestParam("id") String staffId) {
+        Staff staff = staffService.getStaffInfo(Integer.parseInt(staffId));
+
+        if (staff != null) {
+            return new ContentResult(1, "Get staff successfully!", staff);
+        }
+        return new ContentResult(-1, "Get staff failure!");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public ContentResult editStaffInfo(HttpServletRequest request) {
+        String staffId = request.getParameter("id");
+        String staffName = request.getParameter("name");
+        String staffGender = request.getParameter("gender");
+        String staffPhone = request.getParameter("phone");
+
+        int editResult = staffService.editStaffInfo(Integer.parseInt(staffId), staffName, staffGender, staffPhone);
+        if (editResult > 0) {
+            return new ContentResult(1, "Edit staff successfully!");
+        }
+        return new ContentResult(-1, "Edit staff failure!");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/remove", method = RequestMethod.POST)
+    public ContentResult removeStaff(@RequestParam("id") String staffId) {
+        int removeResult = staffService.removeStaffInfo(Integer.parseInt(staffId));
+        if (removeResult > 0) {
+            return new ContentResult(1, "Staff remove successfully!");
+        }
+        return new ContentResult(-1, "Staff remove failure!");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+    public ContentResult changePassword(@RequestParam("id") String staffId, @RequestParam("password") String password) {
+        int changeResult = staffService.changePassword(Integer.parseInt(staffId), password);
+
+        if (changeResult > 0) {
+            return new ContentResult(1, "Change password successfully!");
+        }
+        return new ContentResult(-1, "Change password failure!");
+    }
 
 }
