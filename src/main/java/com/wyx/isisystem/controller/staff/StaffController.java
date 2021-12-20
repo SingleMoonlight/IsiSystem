@@ -100,4 +100,38 @@ public class StaffController {
         return new ContentResult(-1, "Change password failure!");
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/getPassword", method = RequestMethod.GET)
+    public ContentResult getPassword(@RequestParam("id") String staffId) {
+        String psw = staffService.getPassword(Integer.parseInt(staffId));
+
+        if (psw != null) {
+            return new ContentResult(1, "Get password successfully!", psw);
+        }
+        return new ContentResult(-1, "Get password failure!");
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/getByGroup", method = RequestMethod.GET)
+    public ContentResult getStaffByGroup(@RequestParam("groupId") String groupId) {
+        List<Staff> list = staffService.getStaffByGroup(Integer.parseInt(groupId));
+
+        if (list.size() > 0) {
+            return new ContentResult(1, "Get staff by group successfully!", list);
+        }
+        return new ContentResult(-1, "Get staff by group failure!");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public ContentResult getAllStaff() {
+        List<Staff> list = staffService.getAllStaff();
+
+        if (list.size() > 0) {
+            return new ContentResult(1, "Get staff successfully!", list);
+        }
+        return new ContentResult(-1, "Get staff failure!");
+    }
+
 }

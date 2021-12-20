@@ -24,6 +24,15 @@
         WHERE user_id = #{id} AND user_type = #{type}
     </update>
 
+    <select id="queryPassword" resultType="java.lang.String">
+        SELECT user_password AS password
+        FROM login_info
+        WHERE user_id = #{id}
+    </select>
+
+
+
+
     <select id="queryStaffInfo" resultType="com.wyx.isisystem.entity.Staff">
         SELECT staff_id AS id, staff_name AS name, staff_gender AS gender, staff_phone AS phone, staff_group_id AS groupId, staff_leader_flag AS leaderFlag
         FROM staff_info
@@ -53,5 +62,22 @@
         DELETE FROM staff_info
         WHERE staff_id = #{id}
     </delete>
+
+    <select id="queryStaffByGroup" resultType="com.wyx.isisystem.entity.Staff">
+        SELECT staff_id AS id, staff_name AS name, staff_gender AS gender, staff_phone AS phone, staff_leader_flag AS leaderFlag
+        FROM staff_info
+        WHERE staff_group_id = #{groupId}
+    </select>
+
+    <select id="queryAllStaff" resultType="com.wyx.isisystem.entity.Staff">
+        SELECT staff_id AS id, staff_name AS name, staff_gender AS gender, staff_phone AS phone, staff_group_id AS groupId, staff_leader_flag AS leaderFlag
+        FROM staff_info
+    </select>
+
+    <update id="updateStaffGroup">
+        UPDATE staff_info
+        SET staff_group_id = #{groupId}
+        WHERE staff_id = #{staffId}
+    </update>
 
 </mapper>

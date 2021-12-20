@@ -105,5 +105,24 @@ public class StaffServiceImpl implements StaffService {
         return staffDao.updateStaffFromLogin(id, password, 2);
     }
 
+    @Override
+    public String getPassword(int id) {
+        return staffDao.queryPassword(id);
+    }
+
+    @Override
+    public List<Staff> getStaffByGroup(int groupId) {
+        return staffDao.queryStaffByGroup(groupId);
+    }
+
+    @Override
+    public List<Staff> getAllStaff() {
+        return staffDao.queryAllStaff();
+    }
+
+    @Override
+    public int changeStaffGroup(int staffId, int groupId) {
+        return staffDao.updateStaffGroup(staffId, groupId);
+    }
 
 }

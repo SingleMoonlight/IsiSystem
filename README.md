@@ -93,13 +93,17 @@
 | 编辑员工信息 | /staff/edit           | id：员工id<br />name：姓名<br />gender：性别<br />phone：电话<br /> | POST     |      |
 | 删除员工     | /staff/remove         | id：员工id                                                   | POST     |      |
 | 修改密码     | /staff/changePassword | id：员工id<br />password：新密码                             | POST     |      |
-|              |                       |                                                              |          |      |
-
+| 查询密码     | /staff/getPassword |     id：员工id                                                    |   GET       |      |
+| 查询指定小组的员工 | /staff/getByGroup | groupId：小组id | GET |      |
+| 查询所有员工 | /staff/getAll | | GET | |
 
 
 ####  小组管理
 
-
+| 描述     | 路径 | 参数 | 请求类型 | 备注 |
+| -------- | ---- | ---- | -------- | ---- |
+| 创建小组 |      |      |          |      |
+|          |      |      |          |      |
 
 ###  检查相关
 

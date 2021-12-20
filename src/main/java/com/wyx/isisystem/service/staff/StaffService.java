@@ -22,5 +22,13 @@ public interface StaffService {
     int removeStaffInfo(int id);
     // 修改密码
     int changePassword(int id, String password);
+    // 获取员工密码
+    String getPassword(int id);
+    // 获取指定小组的员工
+    List<Staff> getStaffByGroup(int groupId);
+    // 获取所有员工
+    List<Staff> getAllStaff();
+    // 修改员工所属小组
+    int changeStaffGroup(int staffId, int groupId);
 
 }
