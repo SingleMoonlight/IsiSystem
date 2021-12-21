@@ -19,7 +19,7 @@ import java.util.List;
 @Service("groupServiceImpl")
 public class GroupServiceImpl implements GroupService {
     @Autowired
-    private StaffService staffService;
+    private StaffDao staffDao;
     @Autowired
     private GroupDao groupDao;
 
@@ -41,7 +41,7 @@ public class GroupServiceImpl implements GroupService {
         // 更新组员小组属性信息
         String[] staffs = staffList.split(",");
         for (String staffId : staffs) {
-            staffService.changeStaffGroup(Integer.parseInt(staffId), groupId);
+            staffDao.updateStaffGroup(Integer.parseInt(staffId), groupId);
         }
 
         return groupId;
@@ -62,10 +62,10 @@ public class GroupServiceImpl implements GroupService {
     public int editGroupLeader(int id, int leaderId) {
         int oldLeaderId = getGroupInfo(id).getId();
         // 设置旧组长为普通员工
-        staffService.changeStaffLeaderFlag(oldLeaderId, 0);
+        staffDao.updateStaffLeaderFlag(oldLeaderId, 0);
         // 设置新员工为组长
-        staffService.changeStaffLeaderFlag(leaderId, 1);
-        staffService.changeStaffGroup(leaderId, id);
+        staffDao.updateStaffLeaderFlag(leaderId, 1);
+        staffDao.updateStaffGroup(leaderId, id);
         // 更新小组信息
         return groupDao.updateGroupLeader(id, leaderId);
     }
@@ -74,13 +74,13 @@ public class GroupServiceImpl implements GroupService {
     @Transactional
     public int removeGroup(int groupId) {
         // 设置原小组组员为未分配状态
-        List<Staff> list = staffService.getStaffByGroup(groupId);
+        List<Staff> list = staffDao.queryStaffByGroup(groupId);
         for (Staff staff : list) {
-            staffService.changeStaffGroup(staff.getId(), 0);
+            staffDao.updateStaffGroup(staff.getId(), 0);
         }
         // 设置原小组组长为普通员工
         int oldLeaderId = getGroupInfo(groupId).getId();
-        staffService.changeStaffLeaderFlag(oldLeaderId, 0);
+        staffDao.updateStaffLeaderFlag(oldLeaderId, 0);
         // 删除小组信息
         return groupDao.deleteGroup(groupId);
     }

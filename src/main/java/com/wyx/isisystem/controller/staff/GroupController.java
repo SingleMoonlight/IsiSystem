@@ -2,6 +2,8 @@ package com.wyx.isisystem.controller.staff;
 
 import com.wyx.isisystem.entity.ContentResult;
 import com.wyx.isisystem.entity.Group;
+import com.wyx.isisystem.entity.Project;
+import com.wyx.isisystem.service.project.ProjectService;
 import com.wyx.isisystem.service.staff.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,8 @@ import java.util.List;
 public class GroupController {
     @Autowired
     private GroupService groupService;
+    @Autowired
+    private ProjectService projectService;
 
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -67,6 +71,12 @@ public class GroupController {
     @ResponseBody
     @RequestMapping(value = "/remove", method = RequestMethod.POST)
     public ContentResult removeGroup(@RequestParam("id") String groupId) {
+        // 判断当前小组是否有正在进行的项目
+        List<Project> list = projectService.getProjectByGroupAndState(Integer.parseInt(groupId), 1);
+        if (list.size() > 0) {
+            return new ContentResult(-2, "The group has projects going on!");
+        }
+
         int removeResult = groupService.removeGroup(Integer.parseInt(groupId));
         if (removeResult > 0) {
             return new ContentResult(1, "Remove group successfully!");
@@ -76,3 +86,4 @@ public class GroupController {
 
 
 }
+

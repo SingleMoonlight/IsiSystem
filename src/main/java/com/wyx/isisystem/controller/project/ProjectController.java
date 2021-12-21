@@ -106,4 +106,13 @@ public class ProjectController {
         return new ContentResult(-1, "Get projects failure!");
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/getByState", method = RequestMethod.GET)
+    public ContentResult getProjectByState(@RequestParam("state") String state) {
+        List<Project> list = projectService.getProjectByState(Integer.parseInt(state));
+        if (list.size() != 0) {
+            return new ContentResult(1, "Get projects successfully!", list);
+        }
+        return new ContentResult(-1, "Get projects failure!");
+    }
 }

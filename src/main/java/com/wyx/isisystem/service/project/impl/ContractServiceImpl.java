@@ -1,6 +1,7 @@
 package com.wyx.isisystem.service.project.impl;
 
 import com.wyx.isisystem.dao.ContractDao;
+import com.wyx.isisystem.dao.ProjectDao;
 import com.wyx.isisystem.entity.Contract;
 import com.wyx.isisystem.service.project.ContractService;
 import com.wyx.isisystem.service.project.ProjectService;
@@ -17,7 +18,7 @@ public class ContractServiceImpl implements ContractService {
     @Autowired
     private ContractDao contractDao;
     @Autowired
-    private ProjectService projectService;
+    private ProjectDao projectDao;
 
     @Override
     @Transactional
@@ -31,7 +32,7 @@ public class ContractServiceImpl implements ContractService {
         contractDao.insertContract(contract);
         int contractId = contract.getId();
         // 更新合同对应的项目状态为正在进行
-        projectService.editProjectState(projectId, 1);
+        projectDao.updateProjectState(projectId, 1);
 
         return contractId;
     }

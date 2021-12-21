@@ -27,5 +27,8 @@ public interface ProjectDao {
     int queryStateProjectCount(int state);
     // 查询所有项目
     List<Project> queryAllProject();
-
+    // 查询指定小组指定状态的项目
+    List<Project> queryProjectByGroupAndState(int groupId, int state);
+    // 查询指定状态下的项目
+    List<Project> queryProjectByState(int state);
 }

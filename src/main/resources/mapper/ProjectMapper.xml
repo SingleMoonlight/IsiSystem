@@ -49,4 +49,18 @@
         FROM project_info
     </select>
 
+    <select id="queryProjectByGroupAndState" resultType="com.wyx.isisystem.entity.Project">
+        SELECT project_name AS name, project_description AS description, project_owner AS owner, project_owner_phone AS ownerPhone,
+               project_risk_value AS riskValue, project_create_time AS createTime
+        FROM project_info
+        WHERE check_group_id - #{groupId} AND project_state = #{state}
+    </select>
+
+    <select id="queryProjectByState" resultType="com.wyx.isisystem.entity.Project">
+        SELECT project_name AS name, project_description AS description, project_owner AS owner, project_owner_phone AS ownerPhone,
+               project_risk_value AS riskValue, project_create_time AS createTime, check_group_id AS groupId
+        FROM project_info
+        WHERE project_state = #{state}
+    </select>
+
 </mapper>

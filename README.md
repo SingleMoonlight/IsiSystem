@@ -50,18 +50,25 @@
 | 租户登录 | /login/tenant | id：租户id<br />password：密码 | POST     |      |
 | 员工登录 | /login/staff  | id：员工id<br />password：密码 | POST     |      |
 
+### 租户相关
+
+| 描述         | 路径                   | 参数                             | 请求类型 | 备注 |
+| ------------ | ---------------------- | -------------------------------- | -------- | ---- |
+| 获取租户密码 | /tenant/getPassword    | id：租户id                       | GET      |      |
+| 修改租户密码 | /tenant/changePassword | id：租户id<br />password：新密码 | POST     |      |
+
 ###  项目相关
 
 ####  项目管理
 
-| 描述             | 路径             | 参数                                                         | 请求类型 | 备注 |
-| ---------------- | ---------------- | ------------------------------------------------------------ | -------- | ---- |
-| 新建项目         | /project/create  | name：项目名<br />description：项目描述<br />owner：项目负责人<br />ownerPhone：负责人电话<br />checkGroupId：检查小组id | POST     |      |
-| 获取项目信息     | /project/getById | id：项目id                                                   | GET      |      |
-| 修改项目         | /project/edit    | id：项目id<br />name：项目名<br />description：项目描述<br />owner：项目负责人<br />ownerPhone：负责人电话<br />checkGroupId：检查小组id | POST     |      |
-| 删除项目         | /project/remove  | id：项目id                                                   |          |      |
-| 获取所有项目信息 | /project/getAll  |                                                              | GET      |      |
-|                  |                  |                                                              |          |      |
+| 描述               | 路径                | 参数                                                         | 请求类型 | 备注 |
+| ------------------ | ------------------- | ------------------------------------------------------------ | -------- | ---- |
+| 新建项目           | /project/create     | name：项目名<br />description：项目描述<br />owner：项目负责人<br />ownerPhone：负责人电话<br />checkGroupId：检查小组id | POST     |      |
+| 获取项目信息       | /project/getById    | id：项目id                                                   | GET      |      |
+| 修改项目           | /project/edit       | id：项目id<br />name：项目名<br />description：项目描述<br />owner：项目负责人<br />ownerPhone：负责人电话<br />checkGroupId：检查小组id | POST     |      |
+| 删除项目           | /project/remove     | id：项目id                                                   |          |      |
+| 获取所有项目信息   | /project/getAll     |                                                              | GET      |      |
+| 获取指定状态的项目 | /project/getByState | state：项目状态                                              | GET      |      |
 
 
 
@@ -77,9 +84,6 @@
 | 描述     | 路径             | 参数                                                         | 请求类型 | 备注                                                      |
 | -------- | ---------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- |
 | 创建合同 | /contract/create | clientId：委托方id<br />projectId：项目id<br />checkSystemId：检查体系id | POST     | 由于检查体系可以选择多个，多个体系id之间用英文逗号`,`连接 |
-|          |                  |                                                              |          |                                                           |
-
-
 
 ###  员工相关
 
@@ -110,7 +114,14 @@
 
 ###  检查相关
 
+#### 检查记录
 
+| 描述 | 路径 | 参数 | 请求类型 | 备注 |
+| ---- | ---- | ---- | -------- | ---- |
+|      |      |      |          |      |
+|      |      |      |          |      |
+
+#### 检查统计
 
 
 

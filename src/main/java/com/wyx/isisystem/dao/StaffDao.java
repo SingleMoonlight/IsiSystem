@@ -31,7 +31,7 @@ public interface StaffDao {
     // 删除员工
     int deleteStaff(int id);
     // 查询密码
-    String queryPassword(int id);
+    String queryPassword(int id, int type);
     // 查询指定小组的员工
     List<Staff> queryStaffByGroup(int groupId);
     // 查询所有员工

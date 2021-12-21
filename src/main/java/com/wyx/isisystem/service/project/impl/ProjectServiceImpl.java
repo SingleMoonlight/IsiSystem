@@ -77,4 +77,14 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDao.queryAllProject();
     }
 
+    @Override
+    public List<Project> getProjectByGroupAndState(int groupId, int state) {
+        return projectDao.queryProjectByGroupAndState(groupId, state);
+    }
+
+    @Override
+    public List<Project> getProjectByState(int state) {
+        return projectDao.queryProjectByState(state);
+    }
+
 }

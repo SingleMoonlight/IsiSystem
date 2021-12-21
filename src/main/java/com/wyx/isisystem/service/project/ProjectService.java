@@ -26,4 +26,8 @@ public interface ProjectService {
     int getStateProjectCount(int state);
     // 查询所有项目
     List<Project> getAllProject();
+    // 查询指定检查小组指定状态的项目
+    List<Project> getProjectByGroupAndState(int groupId, int state);
+    // 查询指定状态下的项目
+    List<Project> getProjectByState(int state);
 }

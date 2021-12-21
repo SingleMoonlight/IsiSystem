@@ -13,4 +13,8 @@ public interface TenantDao {
     Tenant queryFromLogin(int id, String password, int type);
     // 查询租户信息
     Tenant queryTenantInfo(int id);
+    // 查询租户密码
+    String queryPassword(int id, int type);
+    //修改密码（登录表信息）
+    int updateTenantFromLogin(int id, String password, int type);
 }

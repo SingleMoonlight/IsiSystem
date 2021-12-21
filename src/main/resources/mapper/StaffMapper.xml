@@ -27,7 +27,7 @@
     <select id="queryPassword" resultType="java.lang.String">
         SELECT user_password AS password
         FROM login_info
-        WHERE user_id = #{id}
+        WHERE user_id = #{id} AND user_type = #{type}
     </select>
 
 

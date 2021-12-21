@@ -14,5 +14,17 @@
         WHERE tenant_id = #{id}
     </select>
 
+    <select id="queryPassword" resultType="java.lang.String">
+        SELECT user_password AS password
+        FROM login_info
+        WHERE user_id = #{id} AND user_type = #{type}
+    </select>
+
+    <update id="updateTenantFromLogin">
+        UPDATE login_info
+        SET user_password = #{password}
+        WHERE user_id = #{id} AND user_type = #{type}
+    </update>
+
 
 </mapper>

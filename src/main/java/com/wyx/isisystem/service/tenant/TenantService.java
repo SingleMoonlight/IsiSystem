@@ -9,4 +9,8 @@ import com.wyx.isisystem.entity.Tenant;
 public interface TenantService {
     // 获取租户信息
     Tenant getTenantInfo(int id);
+    // 获取租户密码
+    String getPassword(int id);
+    // 修改租户密码
+    int changePassword(int id, String password);
 }

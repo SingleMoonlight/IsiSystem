@@ -107,7 +107,7 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public String getPassword(int id) {
-        return staffDao.queryPassword(id);
+        return staffDao.queryPassword(id, 2);
     }
 
     @Override

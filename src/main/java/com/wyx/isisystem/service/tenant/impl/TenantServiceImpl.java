@@ -19,4 +19,14 @@ public class TenantServiceImpl implements TenantService {
     public Tenant getTenantInfo(int id) {
         return tenantDao.queryTenantInfo(id);
     }
+
+    @Override
+    public String getPassword(int id) {
+        return tenantDao.queryPassword(id, 1);
+    }
+
+    @Override
+    public int changePassword(int id, String password) {
+        return tenantDao.updateTenantFromLogin(id, password, 1);
+    }
 }
