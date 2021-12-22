@@ -31,4 +31,6 @@ public interface ProjectDao {
     List<Project> queryProjectByGroupAndState(int groupId, int state);
     // 查询指定状态下的项目
     List<Project> queryProjectByState(int state);
+    // 查询项目的监察体系
+    String queryProjectCheckSystem(int projectId);
 }

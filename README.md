@@ -61,16 +61,16 @@
 
 ####  项目管理
 
-| 描述               | 路径                | 参数                                                         | 请求类型 | 备注 |
-| ------------------ | ------------------- | ------------------------------------------------------------ | -------- | ---- |
-| 新建项目           | /project/create     | name：项目名<br />description：项目描述<br />owner：项目负责人<br />ownerPhone：负责人电话<br />checkGroupId：检查小组id | POST     |      |
-| 获取项目信息       | /project/getById    | id：项目id                                                   | GET      |      |
-| 修改项目           | /project/edit       | id：项目id<br />name：项目名<br />description：项目描述<br />owner：项目负责人<br />ownerPhone：负责人电话<br />checkGroupId：检查小组id | POST     |      |
-| 删除项目           | /project/remove     | id：项目id                                                   |          |      |
-| 获取所有项目信息   | /project/getAll     |                                                              | GET      |      |
-| 获取指定状态的项目 | /project/getByState | state：项目状态                                              | GET      |      |
-
-
+| 描述                           | 路径                        | 参数                                                         | 请求类型 | 备注 |
+| ------------------------------ | --------------------------- | ------------------------------------------------------------ | -------- | ---- |
+| 新建项目                       | /project/create             | name：项目名<br />description：项目描述<br />owner：项目负责人<br />ownerPhone：负责人电话<br />checkGroupId：检查小组id | POST     |      |
+| 获取项目信息                   | /project/getById            | id：项目id                                                   | GET      |      |
+| 修改项目                       | /project/edit               | id：项目id<br />name：项目名<br />description：项目描述<br />owner：项目负责人<br />ownerPhone：负责人电话<br />checkGroupId：检查小组id | POST     |      |
+| 删除项目                       | /project/remove             | id：项目id                                                   |          |      |
+| 获取所有项目信息               | /project/getAll             |                                                              | GET      |      |
+| 获取指定小组指定状态的项目信息 | /project/getByGroupAndState | groupId：小组id<br />state：项目状态                         | POST     |      |
+| 获取指定状态的项目             | /project/getByState         | state：项目状态                                              | GET      |      |
+| 获取项目的检查体系             | /project/getCheckSystem     | id：项目id                                                   | GET      |      |
 
 ####  委托方管理
 

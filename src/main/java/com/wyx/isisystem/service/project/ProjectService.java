@@ -30,4 +30,6 @@ public interface ProjectService {
     List<Project> getProjectByGroupAndState(int groupId, int state);
     // 查询指定状态下的项目
     List<Project> getProjectByState(int state);
+    // 获取项目的检查体系
+    String getProjectCheckSystem(int projectId);
 }

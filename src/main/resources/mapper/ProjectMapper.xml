@@ -63,4 +63,10 @@
         WHERE project_state = #{state}
     </select>
 
+    <select id="queryProjectCheckSystem" resultType="java.lang.String">
+        SELECT check_system_id AS checkSystemId
+        FROM client_contract_info
+        WHERE project_id = #{projectId}
+    </select>
+
 </mapper>

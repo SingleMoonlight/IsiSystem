@@ -107,6 +107,16 @@ public class ProjectController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/getByGroupAndState", method = RequestMethod.POST)
+    public ContentResult getProjectByGroupAndState(@RequestParam("groupId") String groupId, @RequestParam("state") String state) {
+        List<Project> list = projectService.getProjectByGroupAndState(Integer.parseInt(groupId), Integer.parseInt(state));
+        if (list.size() != 0) {
+            return new ContentResult(1, "Get projects successfully!", list);
+        }
+        return new ContentResult(-1, "Get projects failure!");
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/getByState", method = RequestMethod.GET)
     public ContentResult getProjectByState(@RequestParam("state") String state) {
         List<Project> list = projectService.getProjectByState(Integer.parseInt(state));
@@ -115,4 +125,16 @@ public class ProjectController {
         }
         return new ContentResult(-1, "Get projects failure!");
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/getCheckSystem", method = RequestMethod.GET)
+    public ContentResult getProjectCheckSystem(@RequestParam("id") String projectId) {
+        String checkSystem = projectService.getProjectCheckSystem(Integer.parseInt(projectId));
+
+        if (checkSystem != null) {
+            return new ContentResult(1, "Get project check system successfully!", checkSystem);
+        }
+        return new ContentResult(-1, "Get project check system successfully!");
+    }
+
 }

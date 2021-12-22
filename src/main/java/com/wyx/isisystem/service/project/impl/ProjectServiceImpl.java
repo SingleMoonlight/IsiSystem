@@ -1,10 +1,12 @@
 package com.wyx.isisystem.service.project.impl;
 
 import com.wyx.isisystem.dao.ProjectDao;
+import com.wyx.isisystem.dao.StaffDao;
 import com.wyx.isisystem.entity.Project;
 import com.wyx.isisystem.service.project.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -85,6 +87,11 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public List<Project> getProjectByState(int state) {
         return projectDao.queryProjectByState(state);
+    }
+
+    @Override
+    public String getProjectCheckSystem(int projectId) {
+        return projectDao.queryProjectCheckSystem(projectId);
     }
 
 }
