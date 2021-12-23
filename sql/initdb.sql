@@ -62,6 +62,7 @@ CREATE TABLE `check_info` (
 CREATE TABLE `check_system` (
     `cur_node_id` bigint(8) NOT NULL AUTO_INCREMENT COMMENT '当前结点id',
     `per_node_id` bigint(8) NOT NULL COMMENT '前置结点id',
+    `node_weight` bigint(8) NOT NULL COMMENT '权重',
     `node_description` varchar(16) NOT NULL COMMENT '当前节点描述',
     PRIMARY KEY (`cur_node_id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_bin;

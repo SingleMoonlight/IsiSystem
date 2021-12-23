@@ -69,4 +69,10 @@
         WHERE project_id = #{projectId}
     </select>
 
+    <update id="updateProjectRiskValue">
+        UPDATE project_info
+        SET project_risk_value = #{riskValue}
+        WHERE project_id = #{id}
+    </update>
+
 </mapper>

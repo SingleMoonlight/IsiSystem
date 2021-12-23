@@ -14,10 +14,10 @@ public interface CheckSystemService {
     // 获取检查体系节点信息
     CheckSystem getCheckSystemNodeInfo(int id);
     // 新增检查体系节点
-    int createCheckSystemNode(int preNodeId, String description);
+    int createCheckSystemNode(int preNodeId, String description, int weight);
     // 删除指定的检查体系节点
     int removeCheckSystem(int id);
     // 修改检查体系节点
-    int editCheckSystemId(int id, String description);
+    int editCheckSystemId(int id, String description, int weight);
 
 }

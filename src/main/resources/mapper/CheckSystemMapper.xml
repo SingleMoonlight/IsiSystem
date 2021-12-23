@@ -3,20 +3,20 @@
 <mapper namespace="com.wyx.isisystem.dao.CheckSystemDao">
 
     <select id="querySubNodes" resultType="com.wyx.isisystem.entity.CheckSystem">
-        SELECT cur_node_id AS curCheckId, per_node_id AS preCheckId, node_description AS description
+        SELECT cur_node_id AS curCheckId, per_node_id AS preCheckId, node_description AS description, node_weight AS weight
         FROM check_system
         WHERE per_node_id = #{curNodeId}
     </select>
 
     <select id="queryNodeInfo" resultType="com.wyx.isisystem.entity.CheckSystem">
-        SELECT cur_node_id AS curCheckId, per_node_id AS preCheckId, node_description AS description
+        SELECT cur_node_id AS curCheckId, per_node_id AS preCheckId, node_description AS description, node_weight AS weight
         FROM check_system
         WHERE cur_node_id = #{nodeId}
     </select>
 
-    <insert id="insertNode" parameterType="com.wyx.isisystem.entity.CheckSystem" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO check_system(per_node_id, node_description)
-        VALUE (#{preCheckId}, #{description})
+    <insert id="insertNode" parameterType="com.wyx.isisystem.entity.CheckSystem" useGeneratedKeys="true" keyProperty="curCheckId">
+        INSERT INTO check_system(per_node_id, node_description, node_weight)
+        VALUE (#{preCheckId}, #{description}, #{weight})
     </insert>
 
     <delete id="deleteNode">
@@ -26,7 +26,7 @@
 
     <update id="updateNodeInfo">
         UPDATE check_system
-        SET node_description = #{description}
+        SET node_description = #{description}, node_weight = #{weight}
         WHERE cur_node_id = #{nodeId}
     </update>
 

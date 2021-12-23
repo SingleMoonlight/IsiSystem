@@ -71,6 +71,8 @@
 | 获取指定小组指定状态的项目信息 | /project/getByGroupAndState | groupId：小组id<br />state：项目状态                         | POST     |      |
 | 获取指定状态的项目             | /project/getByState         | state：项目状态                                              | GET      |      |
 | 获取项目的检查体系             | /project/getCheckSystem     | id：项目id                                                   | GET      |      |
+| 设置项目状态                   | /project/editState          | id：项目id<br />state：项目状态                              | POST     |      |
+| 设置项目风险值                 | /project/editRiskValue      | id：项目id<br />riskValue：项目风险值                        | POST     |      |
 
 ####  委托方管理
 
@@ -113,6 +115,16 @@
 | 删除小组     | /group/remove     | id：小组id                                                   | POST     |                                                     |
 
 ###  检查相关
+
+#### 检查体系
+
+| 描述                           | 路径                     | 参数                                                         | 请求类型 | 备注 |
+| ------------------------------ | ------------------------ | ------------------------------------------------------------ | -------- | ---- |
+| 获取指定结点的后继检查体系节点 | /checkSystem/getSubNodes | nodeId：检查体系节点                                         | GET      |      |
+| 获取指定检查结点的信息         | /checkSystem/getNodeInfo | nodeId：检查体系节点                                         | GET      |      |
+| 新增检查体系                   | /checkSystem/createNode  | preNodeId：前置节点id<br />description：节点说明<br />weight：权重 | POST     |      |
+| 删除节点                       | /checkSystem/removeNode  | nodeId：检查体系节点                                         | POST     |      |
+| 更新节点信息                   | /checkSystem/editNode    | curNodeId：节点id<br />description：节点说明<br />weight：权重 | POST     |      |
 
 #### 检查记录
 

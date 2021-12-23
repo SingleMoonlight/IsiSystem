@@ -71,5 +71,4 @@ public class CheckRecordController {
         }
         return new ContentResult(-1, "Edit check record state failure!");
     }
-
 }

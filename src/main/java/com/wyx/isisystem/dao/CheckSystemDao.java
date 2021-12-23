@@ -20,6 +20,6 @@ public interface CheckSystemDao {
     // 删除体系节点
     int deleteNode(int nodeId);
     // 修改检查体系节点信息
-    int updateNodeInfo(int nodeId, String description);
+    int updateNodeInfo(int nodeId, String description, int weight);
 
 }

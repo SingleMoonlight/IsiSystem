@@ -32,4 +32,6 @@ public interface ProjectService {
     List<Project> getProjectByState(int state);
     // 获取项目的检查体系
     String getProjectCheckSystem(int projectId);
+    // 修改项目风险值
+    int editProjectRiskValue(int projectId, int riskValue);
 }

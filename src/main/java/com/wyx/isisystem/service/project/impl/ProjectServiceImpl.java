@@ -94,4 +94,9 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDao.queryProjectCheckSystem(projectId);
     }
 
+    @Override
+    public int editProjectRiskValue(int projectId, int riskValue) {
+        return projectDao.updateProjectRiskValue(projectId, riskValue);
+    }
+
 }

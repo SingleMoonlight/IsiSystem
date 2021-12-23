@@ -33,4 +33,6 @@ public interface ProjectDao {
     List<Project> queryProjectByState(int state);
     // 查询项目的监察体系
     String queryProjectCheckSystem(int projectId);
+    // 更新项目风险值
+    int updateProjectRiskValue(int id, int riskValue);
 }

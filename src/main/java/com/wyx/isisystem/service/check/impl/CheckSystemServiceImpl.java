@@ -29,10 +29,11 @@ public class CheckSystemServiceImpl implements CheckSystemService {
     }
 
     @Override
-    public int createCheckSystemNode(int preNodeId, String description) {
+    public int createCheckSystemNode(int preNodeId, String description, int weight) {
         CheckSystem checkSystem = new CheckSystem();
         checkSystem.setPreCheckId(preNodeId);
         checkSystem.setDescription(description);
+        checkSystem.setWeight(weight);
 
         return checkSystemDao.insertNode(checkSystem);
     }
@@ -43,8 +44,8 @@ public class CheckSystemServiceImpl implements CheckSystemService {
     }
 
     @Override
-    public int editCheckSystemId(int id, String description) {
-        return checkSystemDao.updateNodeInfo(id, description);
+    public int editCheckSystemId(int id, String description, int weight) {
+        return checkSystemDao.updateNodeInfo(id, description, weight);
     }
 
 

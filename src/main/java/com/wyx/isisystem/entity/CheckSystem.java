@@ -13,6 +13,8 @@ public class CheckSystem {
     private int curCheckId;
     // 前置检查体系id
     private int preCheckId;
+    // 权重
+    private int weight;
     // 当前节点描述
     private String description;
 
@@ -38,5 +40,13 @@ public class CheckSystem {
 
     public void setPreCheckId(int preCheckId) {
         this.preCheckId = preCheckId;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 }

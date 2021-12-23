@@ -137,4 +137,24 @@ public class ProjectController {
         return new ContentResult(-1, "Get project check system successfully!");
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/editState", method = RequestMethod.POST)
+    public ContentResult editProjectState(@RequestParam("id") String projectId, @RequestParam("state")  String state) {
+        int editResult = projectService.editProjectState(Integer.parseInt(projectId), Integer.parseInt(state));
+        if (editResult > 0) {
+            return new ContentResult(1, "Edit project state successfully!");
+        }
+        return new ContentResult(-1, "Edit project state failure!");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/editRiskValue", method = RequestMethod.POST)
+    public ContentResult editProjectRiskValue(@RequestParam("id") String projectId, @RequestParam("riskValue")  String riskValue) {
+        int editResult = projectService.editProjectRiskValue(Integer.parseInt(projectId), Integer.parseInt(riskValue));
+        if (editResult > 0) {
+            return new ContentResult(1, "Edit project risk value successfully!");
+        }
+        return new ContentResult(-1, "Edit project risk value failure!");
+    }
+
 }

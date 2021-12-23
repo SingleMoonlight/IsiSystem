@@ -26,15 +26,14 @@ public class CheckSystemController {
     private ProjectService projectService;
 
     @ResponseBody
-    @RequestMapping(value = "/getFirstLevel", method = RequestMethod.GET)
-    public ContentResult getFirstLevel() {
-        // 第一级节点的前置节点为0
-        List<CheckSystem> list = checkSystemService.getSubCheckSystemNodes(0);
+    @RequestMapping(value = "/getSubNodes", method = RequestMethod.GET)
+    public ContentResult getSubNodes(@RequestParam("nodeId") String curNodeId) {
+        List<CheckSystem> list = checkSystemService.getSubCheckSystemNodes(Integer.parseInt(curNodeId));
 
         if (list.size() != 0) {
-            return new ContentResult(1, "Get the first check system node successfully!", list);
+            return new ContentResult(1, "Get the check system node successfully!", list);
         }
-        return new ContentResult(-1, "Get the first check system node failure!");
+        return new ContentResult(-1, "Get the check system node failure!");
     }
 
 
@@ -52,12 +51,12 @@ public class CheckSystemController {
 
     @ResponseBody
     @RequestMapping(value = "/createNode", method = RequestMethod.POST)
-    public ContentResult createNode(@RequestParam("preNodeId") String preNodeId, @RequestParam("description") String description) {
+    public ContentResult createNode(@RequestParam("preNodeId") String preNodeId, @RequestParam("description") String description, @RequestParam("weight") String weight) {
         if (projectService.getStateProjectCount(1) > 0) {
             return new ContentResult(-2, "A node cannot be added because a project is in progress!");
         }
 
-        int curNodeId = checkSystemService.createCheckSystemNode(Integer.parseInt(preNodeId), description);
+        int curNodeId = checkSystemService.createCheckSystemNode(Integer.parseInt(preNodeId), description, Integer.parseInt(weight));
 
         if (curNodeId > 0) {
             return new ContentResult(1, "Create the check system node successfully!");
@@ -82,18 +81,17 @@ public class CheckSystemController {
 
     @ResponseBody
     @RequestMapping(value = "/editNode", method = RequestMethod.POST)
-    public ContentResult editNode(@RequestParam("curNodeId") String curNodeId, @RequestParam("description") String description) {
+    public ContentResult editNode(@RequestParam("curNodeId") String curNodeId, @RequestParam("description") String description, @RequestParam("weight") String weight) {
         if (projectService.getStateProjectCount(1) > 0) {
             return new ContentResult(-2, "A node cannot be edited because a project is in progress!");
         }
 
-        int editResult = checkSystemService.editCheckSystemId(Integer.parseInt(curNodeId), description);
+        int editResult = checkSystemService.editCheckSystemId(Integer.parseInt(curNodeId), description, Integer.parseInt(weight));
 
         if (editResult > 0) {
             return new ContentResult(1, "Edit the check system node successfully!");
         }
         return new ContentResult(-1, "Edit the check system node failure!");
     }
-
 
 }
