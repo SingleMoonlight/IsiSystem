@@ -17,7 +17,7 @@ public class CheckRecord {
     private int firstId;
     // 第二级id
     private int secondId;
-    // 风险等级，0-无风险，1-轻度风险，2-一般风险，3-高危风险
+    // 风险分数
     private int riskLevel;
     // 检查现场图片url
     private String pictureUrl;
