@@ -116,10 +116,12 @@
 
 #### 检查记录
 
-| 描述 | 路径 | 参数 | 请求类型 | 备注 |
-| ---- | ---- | ---- | -------- | ---- |
-|      |      |      |          |      |
-|      |      |      |          |      |
+| 描述                           | 路径                            | 参数                                                         | 请求类型 | 备注                     |
+| ------------------------------ | ------------------------------- | ------------------------------------------------------------ | -------- | ------------------------ |
+| 提交检查记录                   | /checkRecord/add                | staffId：员工id<br />projectId：项目id<br />firstLevel：第一级检查id<br />secondLevel：第二级检查id<br />riskLevel：风险等级<br />picUrl：现场检查图片url<br />description：问题描述 | POST     |                          |
+| 获取某员工对某个项目的检查状态 | /checkRecord/getStaffCheckState | staffId：员工id<br />projectId：项目id                       | POST     | 0：未检查<br />1：已检查 |
+| 获取某个项目的检查记录         | /checkRecord/getByProject       | projectId：项目id                                            | POST     |                          |
+| 设置检查记录状态               | /checkRecord/editState          | checkRecordId：检查记录id<br />state：检查记录状态           |          |                          |
 
 #### 检查统计
 

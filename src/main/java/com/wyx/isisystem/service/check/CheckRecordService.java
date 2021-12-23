@@ -14,7 +14,9 @@ public interface CheckRecordService {
     int addCheckRecord(int staffId, int projectId, int firstLevel, int secondLevel, int riskLevel, String picUrl, String description);
     // 获取员工对某项目的检查记录状态
     int getCheckRecordState(int staffId, int projectId);
-    // 获取员工对某项目指定检查记录状态的检查记录
-    List<CheckRecord> getCheckRecord(int staffId, int projectId, int checkRecordState);
+    // 获取某项目的检查记录
+    List<CheckRecord> getCheckRecordByProject(int projectId);
+    // 设置检查记录的审核状态
+    int editCheckRecordState(int checkRecordId, int state);
 
 }

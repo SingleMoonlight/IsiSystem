@@ -25,16 +25,35 @@ public class CheckRecordServiceImpl implements CheckRecordService {
 
     @Override
     public int addCheckRecord(int staffId, int projectId, int firstLevel, int secondLevel, int riskLevel, String picUrl, String description) {
-        return 0;
+        CheckRecord checkRecord = new CheckRecord();
+        checkRecord.setStaffId(staffId);
+        checkRecord.setProjectId(projectId);
+        checkRecord.setFirstId(firstLevel);
+        checkRecord.setSecondId(secondLevel);
+        checkRecord.setRiskLevel(riskLevel);
+        checkRecord.setPictureUrl(picUrl);
+        checkRecord.setDescription(description);
+
+        return checkRecordDao.insertCheckRecord(checkRecord);
     }
 
     @Override
     public int getCheckRecordState(int staffId, int projectId) {
-        return 0;
+        List<CheckRecord> list = checkRecordDao.queryCheckRecordByStaffAndProject(staffId, projectId);
+        if (list.size() == 0) {
+            return 0;
+        }
+        return 1;
     }
 
     @Override
-    public List<CheckRecord> getCheckRecord(int staffId, int projectId, int checkRecordState) {
-        return null;
+    public List<CheckRecord> getCheckRecordByProject(int projectId) {
+        return checkRecordDao.queryCheckRecordByProject(projectId);
     }
+
+    @Override
+    public int editCheckRecordState(int checkRecordId, int state) {
+        return checkRecordDao.updateCheckRecordState(checkRecordId, state);
+    }
+
 }
