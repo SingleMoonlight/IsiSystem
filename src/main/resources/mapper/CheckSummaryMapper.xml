@@ -3,13 +3,13 @@
 <mapper namespace="com.wyx.isisystem.dao.CheckSummaryDao">
 
     <select id="queryProjectCheckResult" resultType="com.wyx.isisystem.entity.CheckSummary">
-        SELECT check_system_first_level AS firstId, check_system_second_level AS secondId, risk_level AS riskLevel,
+        SELECT project_id AS projectId, check_system_first_level AS firstId, check_system_second_level AS secondId, risk_level AS riskLevel,
         submit_time AS submitTime
         FROM check_summary
         WHERE project_id = #{projectId}
     </select>
 
-    <insert id="insertProjectCheckResult" parameterMap="com.wyx.isisystem.entity.CheckSummary">
+    <insert id="insertProjectCheckResult" parameterType="com.wyx.isisystem.entity.CheckSummary">
         INSERT INTO check_summary(project_id, check_system_first_level, check_system_second_level, risk_level)
         VALUE (#{projectId}, #{firstId}, #{secondId}, #{riskLevel})
     </insert>

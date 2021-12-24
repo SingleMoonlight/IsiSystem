@@ -30,7 +30,7 @@
     </select>
 
     <select id="queryGroup" parameterType="com.wyx.isisystem.entity.Group">
-        SELECT group_name AS name, group_leader_id AS leaderId
+        SELECT group_id AS id, group_name AS name, group_leader_id AS leaderId
         FROM group_info
         WHERE group_id = #{id}
     </select>

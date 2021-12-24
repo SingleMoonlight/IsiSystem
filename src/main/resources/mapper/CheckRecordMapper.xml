@@ -9,15 +9,15 @@
     </insert>
 
     <select id="queryCheckRecordByStaffAndProject" resultType="com.wyx.isisystem.entity.CheckRecord">
-        SELECT check_id AS id, check_system_first_level AS firstId, check_system_second_level AS secondId, check_risk_level AS riskLevel,
-        check_picture_url AS pictureUrl, check_description AS description, check_time AS checkTime, check_state AS checkState
+        SELECT check_id AS id, project_id AS projectId, staff_id AS staffId, check_system_first_level AS firstId, check_system_second_level AS secondId,
+        check_risk_level AS riskLevel, check_picture_url AS pictureUrl, check_description AS description, check_time AS checkTime, check_state AS checkState
         FROM check_info
         WHERE project_id = #{projectId}, staff_id = #{staffId}
     </select>
 
     <select id="queryCheckRecordByProject" resultType="com.wyx.isisystem.entity.CheckRecord">
-        SELECT check_id AS id, staff_id AS staffId, check_system_first_level AS firstId, check_system_second_level AS secondId, check_risk_level AS riskLevel,
-        check_picture_url AS pictureUrl, check_description AS description, check_time AS checkTime, check_state AS checkState
+        SELECT check_id AS id, project_id AS projectId, staff_id AS staffId, check_system_first_level AS firstId, check_system_second_level AS secondId,
+        check_risk_level AS riskLevel, check_picture_url AS pictureUrl, check_description AS description, check_time AS checkTime, check_state AS checkState
         FROM check_info
         WHERE project_id = #{projectId}
     </select>

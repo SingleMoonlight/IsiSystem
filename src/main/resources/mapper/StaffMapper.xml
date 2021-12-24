@@ -64,7 +64,7 @@
     </delete>
 
     <select id="queryStaffByGroup" resultType="com.wyx.isisystem.entity.Staff">
-        SELECT staff_id AS id, staff_name AS name, staff_gender AS gender, staff_phone AS phone, staff_leader_flag AS leaderFlag
+        SELECT staff_id AS id, staff_name AS name, staff_gender AS gender, staff_phone AS phone, staff_group_id AS groupId, staff_leader_flag AS leaderFlag
         FROM staff_info
         WHERE staff_group_id = #{groupId}
     </select>
